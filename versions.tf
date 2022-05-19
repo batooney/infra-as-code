@@ -33,7 +33,14 @@ terraform {
       name = "dev-cluster"
     }
   }
+}
 
-  required_version = ">= 1.0"
+variable "region" {
+  default     = "us-west-2"
+  description = "AWS region"
+}
+
+provider "aws" {
+  region = var.region
 }
 
