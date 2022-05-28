@@ -32,3 +32,8 @@ output "cluster_name" {
   description = "Kubernetes Cluster Name"
   value       = local.cluster_name
 }
+
+output "repository_url" {
+  description = "ECR Repo URL"
+  value = aws_ecr_repository.backend.repository_url
+}
