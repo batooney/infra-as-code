@@ -27,7 +27,7 @@ terraform {
   }
 
   cloud {
-    organization = "example-org-2f5de9"
+    organization = "batooney"
 
     workspaces {
       name = "dev-cluster"
