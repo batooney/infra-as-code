@@ -19,6 +19,7 @@ variable "map_roles" {
     username = string
     groups   = list(string)
   }))
+  default = []
 }
 
 variable "map_users" {
