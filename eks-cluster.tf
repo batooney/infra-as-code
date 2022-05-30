@@ -5,6 +5,8 @@ module "eks" {
   cluster_version = "1.20"
   subnets         = module.vpc.private_subnets
 
+  cluster_endpoint_private_access = true
+
   vpc_id = module.vpc.vpc_id
 
   workers_group_defaults = {
@@ -27,6 +29,12 @@ module "eks" {
       asg_desired_capacity          = 1
     },
   ]
+
+  worker_additional_security_group_ids = [aws_security_group.all_worker_mgmt.id]
+
+  map_roles    = var.map_roles
+  map_users    = var.map_users
+  map_accounts = var.map_accounts
 }
 
 data "aws_eks_cluster" "cluster" {
